@@ -22,7 +22,7 @@ import Iconify from 'src/components/iconify';
 
 // ----------------------------------------------------------------------
 
-export default function LoginView() {
+export default function RegisterView() {
   const theme = useTheme();
 
   const router = useRouter();
@@ -30,12 +30,14 @@ export default function LoginView() {
   const [showPassword, setShowPassword] = useState(false);
 
   const handleClick = () => {
-    router.push('/app');
+    router.push('/');
   };
 
   const renderForm = (
     <>
       <Stack spacing={3}>
+        <TextField name="name" label="Full Name" />
+
         <TextField name="email" label="Email address" />
 
         <TextField
@@ -99,16 +101,12 @@ export default function LoginView() {
             maxWidth: 420,
           }}
         >
-          <Typography variant="h4">Sign in</Typography>
+          <Typography variant="h4">Register</Typography>
 
           <Typography variant="body2" sx={{ mt: 2, mb: 5 }}>
-            Don’t have an account?
-            <Link
-              variant="subtitle2"
-              sx={{ ml: 0.5, cursor: 'arrow' }}
-              onClick={() => router.push('/register')}
-            >
-              Get started
+            Already have an account?
+            <Link variant="subtitle2" sx={{ ml: 0.5 }} onClick={() => router.push('/login')}>
+              Login
             </Link>
           </Typography>
 
